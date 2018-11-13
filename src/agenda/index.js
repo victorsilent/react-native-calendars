@@ -89,6 +89,9 @@ export default class AgendaView extends Component {
     refreshing: PropTypes.bool,
     // Display loading indicador. Default = false
     displayLoadingIndicator: PropTypes.bool,
+    //Specify what should be rendered at end of list
+    renderFooterComponent: PropTypes.func,
+
   };
 
   constructor(props) {
@@ -279,6 +282,7 @@ export default class AgendaView extends Component {
   renderReservations() {
     return (
       <ReservationsList
+        renderFooterComponent={this.props.renderFooterComponent}
         refreshControl={this.props.refreshControl}
         refreshing={this.props.refreshing}
         onRefresh={this.props.onRefresh}
